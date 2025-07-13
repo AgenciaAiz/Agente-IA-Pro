@@ -1,17 +1,13 @@
-
-# api/index.py
+# api/index.py (Versión con tu chatbot)
 from flask import Flask, jsonify
-from api.chatbot import chatbot_bp # Importa el blueprint desde chatbot.py
+from api.chatbot import chatbot_bp # <-- ¡Asegúrate de esta línea para importar tu Blueprint!
 
-# Crea la instancia principal de la aplicación Flask
-app = Flask(__name__) # ¡Esta línea es CRÍTICA y la variable debe llamarse 'app'!
-app.register_blueprint(chatbot_bp)
+app = Flask(__name__)
+app.register_blueprint(chatbot_bp) # <-- ¡Asegúrate de esta línea para registrar el Blueprint!
 
-# Añade una ruta raíz simple para probar si la app funciona.
-# Si tu navegador accede a 'agente-ia-pro.vercel.app/', esta ruta debería responder.
+# Puedes mantener esta ruta raíz para verificar que la app principal carga
 @app.route('/')
 def home():
     return jsonify({"message": "Bienvenido al Chatbot de AIZ Agencia! API funcionando."})
 
-# Asegúrate de NO tener un if __name__ == '__main__': app.run(debug=True) aquí.
-# Vercel maneja la ejecución, no se necesita esta parte en producción.
+# NO incluyas un if __name__ == '__main__': app.run() aquí.
