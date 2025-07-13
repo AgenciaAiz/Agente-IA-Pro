@@ -1,10 +1,12 @@
+
 # api/index.py
 from flask import Flask, jsonify
-from api.chatbot import chatbot_bp # Importa el blueprint desde chatbot.py
+from api.chatbot import chatbot_bp # Assuming chatbot.py is in 'api'
 
+app = Flask(__name__)
 app.register_blueprint(chatbot_bp)
 
-# Puedes añadir una ruta raíz simple para verificar que la app funciona
+# Add a simple root route for testing if you don't have one
 @app.route('/')
 def home():
-    return jsonify({"message": "Bienvenido al Chatbot de AIZ Agencia!"})
+    return jsonify({"message": "API is working!"})
