@@ -169,14 +169,14 @@ def get_response(user_message):
         }
     
     # Servicios generales
-    elif any(word in message for word in ['servicios', 'qué hacen', 'que ofrecen']):
+    elif any(word in message for word in ['servicios', 'qué hacen', 'que ofrecen', 'información','sobre','acerca']):
         return {
             "message": "En Aiz Agencia Digital ofrecemos tres servicios principales:\n\n🤖 **Creación de Agentes IA** - Asistentes virtuales inteligentes\n📱 **Aplicaciones Móviles** - Apps nativas e híbridas\n💻 **Páginas Web** - Sitios modernos y e-commerce\n\n¿Te gustaría conocer más detalles sobre algún servicio en particular?",
-            "suggestions": ["Agentes IA", "Apps Móviles", "Páginas Web", "Ver todos los paquetes"]
+            "suggestions": ["Agentes IA", "Apps Móviles", "Páginas Web", "e-commerce" "Ver todos los paquetes"]
         }
     
     # Agentes IA
-    elif any(word in message for word in ['agente', 'ia', 'inteligencia artificial', 'chatbot', 'bot']):
+    elif any(word in message for word in ['agente', 'ia', 'inteligencia artificial', 'chatbot', 'bot', 'agente conversacional']):
         service = knowledge_base["servicios"]["agentes_ia"]
         return {
             "message": f"🤖 **Creación de Agentes IA**\n\n{service['descripcion']}\n\n**Beneficios principales:**\n" + 
@@ -219,7 +219,7 @@ def get_response(user_message):
     elif any(word in message for word in ['contacto', 'teléfono', 'email', 'dirección', 'ubicación']):
         contacto = knowledge_base["contacto"]
         return {
-            "message": f"📞 **Información de Contacto**\n\n📧 **Email:** {contacto['email']}\n📱 **Teléfono:** {contacto['telefono']}\n📍 **Dirección:** {contacto['direccion']}\n🕒 **Horarios:** {contacto['horarios']}\n\n¿Te gustaría que un asesor se ponga en contacto contigo?",
+            "message": f"📞 **Información de Contacto**\n\n📧 **Email:** {contacto['info@aiz-agencia.com']}\n📱 **Teléfono:** {contacto['5632133454']}\n📍 **Dirección:** {contacto['Guanajuato 131-PB, Col. Roma']}\n🕒 **Horarios:** {contacto['Nuestros horarios son de 9:00 am a 6:00 pm']}\n\n¿Te gustaría que un asesor se ponga en contacto contigo?",
             "suggestions": ["Solicitar llamada", "Enviar email", "Agendar cita", "Ver ubicación"]
         }
     
